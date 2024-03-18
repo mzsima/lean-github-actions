@@ -1,0 +1,19 @@
+name: dev-deploy tag
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - "master"
+      - "main"
+    tags:
+      - '*'
+jobs:
+  build-and-push:
+    name: echo deploy tag
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Extract tag name
+        id: extract_tag
+        run: echo "::set-output name=TAG::${GITHUB_REF#refs/tags/}"
