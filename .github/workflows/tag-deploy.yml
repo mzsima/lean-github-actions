@@ -18,7 +18,7 @@ jobs:
       # タグプッシュ時にのみ実行するステップ
       - name: Run this step for tags only
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
-        run: echo ${{github.ref_name}}
+        run: echo "tagname is ${{github.ref_name}}"
       
       # プルリクエストがマスターまたはメインにマージされたときに実行するステップ
       - name: Run this step for closed PRs to master or main
