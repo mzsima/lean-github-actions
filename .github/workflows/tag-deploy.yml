@@ -15,5 +15,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-       - name: Echo
+      - name: Echo
         run: echo ${{github.ref_name}}
